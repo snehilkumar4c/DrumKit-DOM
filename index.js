@@ -1,17 +1,13 @@
-// detecting clicks
-
 var numberOfDrums = document.querySelectorAll(".drum").length;
 
 for(var i = 0; i < numberOfDrums; i++) {
     document.querySelectorAll(".drum")[i].addEventListener("click", function () {
         
-       var buttonText = this.innerHTML;
+       var buttonInnerHTML = this.innerHTML;
        
-        makeSound(buttonText);
+        makeSound(buttonInnerHTML);
     });
 }
-
-// detecting keyboard input
 
 
 document.addEventListener("keydown", function(event) {
@@ -56,6 +52,6 @@ function makeSound(key) {
             snare.play();
             break;
         
-        default: console.log(buttonText);
+        default: console.log(buttonInnerHTML);
     }
 }
