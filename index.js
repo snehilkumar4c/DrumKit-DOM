@@ -6,12 +6,16 @@ for(var i = 0; i < numberOfDrums; i++) {
        var buttonInnerHTML = this.innerHTML;
        
         makeSound(buttonInnerHTML);
+
+        animations(buttonInnerHTML);
     });
 }
 
 
 document.addEventListener("keydown", function(event) {
     makeSound(event.key);
+
+    animations(event.key);
 });
 
 
@@ -54,4 +58,16 @@ function makeSound(key) {
         
         default: console.log(buttonInnerHTML);
     }
+}
+
+
+
+function animations(currentKey) {
+    var activeButton = document.querySelector("." + currentKey);
+
+    activeButton.classList.add("pressed");
+
+    setTimeout(function() {
+        activeButton.classList.remove("pressed");
+    }, 0.1);
 }
